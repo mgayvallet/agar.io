@@ -1,25 +1,9 @@
-const circle = document.querySelector('#circle');
-let topPosition = 0; 
-let leftPosition = 0; 
+const circle = document.getElementById('circle');
 
-document.addEventListener('keydown', function(event) {
-    switch (event.key) {
-        case 'ArrowUp':
-            topPosition -= 10; 
-            break;
-        case 'ArrowDown':
-            topPosition += 10;
-            break;
-        case 'ArrowLeft':
-            leftPosition -= 10;
-            break;
-        case 'ArrowRight':
-            leftPosition += 10;
-            break;
-        default:
-            break;
-    }
-
-    circle.style.top = topPosition + 'px';
-    circle.style.left = leftPosition + 'px';
+document.addEventListener('mousemove', (event) => {
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+    
+    circle.style.left = `${mouseX - circle.offsetWidth / 2}px`;
+    circle.style.top = `${mouseY - circle.offsetHeight / 2}px`;
 });
